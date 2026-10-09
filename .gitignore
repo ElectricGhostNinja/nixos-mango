@@ -1,0 +1,9 @@
+.session
+/nixos.qcow2
+/result
+/HACKSTATION.qcow2
+/result-man
+.gitsecret/keys/random_seed
+.gitsecret/keys/*~
+!*.secret
+modules/features/gotify-desktop/gotify-key

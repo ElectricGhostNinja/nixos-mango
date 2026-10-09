@@ -1,0 +1,71 @@
+set $mod Mod4
+set $term kitty
+set $menu dmenu_run
+
+exec --no-startup-id xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --pos -1920x0 --output DP-1 --mode 1920x1080 --rate 60 --pos 0x0 --output DP-2 --mode 1920x1080 --rate 60 --pos 1920x0
+
+font pango:FiraMono Nerd Font 10
+
+workspace 1 output DP-1
+workspace 2 output HDMI-A-1
+workspace 3 output DP-2
+
+# Window functions
+bindsym $mod+BackSpace kill
+bindsym $mod+b fullscreen toggle
+
+# Apps
+bindsym $mod+Return exec --no-startup-id $term
+bindsym $mod+d exec --no-startup-id $menu
+bindsym $mod+f exec --no-startup-id firefox
+bindsym $mod+s exec --no-startup-id nemo
+
+# Focus windows
+bindsym $mod+k focus up
+bindsym $mod+j focus down
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+
+# Move windows
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+j move down
+
+# Workspaces
+bindsym $mod+q workspace number 1
+bindsym $mod+w workspace number 2
+bindsym $mod+e workspace number 3
+bindsym $mod+r workspace number 4
+bindsym $mod+t workspace number 5
+bindsym $mod+y workspace number 6
+bindsym $mod+u workspace number 7
+bindsym $mod+i workspace number 8
+bindsym $mod+o workspace number 9
+bindsym $mod+p workspace number 10
+
+# Move container to workspace
+bindsym $mod+Shift+q move container to workspace number 1
+bindsym $mod+Shift+w move container to workspace number 2
+bindsym $mod+Shift+e move container to workspace number 3
+bindsym $mod+Shift+r move container to workspace number 4
+bindsym $mod+Shift+t move container to workspace number 5
+bindsym $mod+Shift+y move container to workspace number 6
+bindsym $mod+Shift+u move container to workspace number 7
+bindsym $mod+Shift+i move container to workspace number 8
+bindsym $mod+Shift+o move container to workspace number 9
+bindsym $mod+Shift+p move container to workspace number 10
+
+# Logout menu
+bindsym $mod+Shift+a exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Reload
+bindsym $mod+Shift+m reload
+
+# Drag windows with titlebar
+tiling_drag modifier titlebar
+
+# Bar
+bar {
+        status_command i3status
+}

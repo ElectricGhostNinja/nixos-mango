@@ -1,0 +1,3 @@
+[submodule "modules/features/nvim/config"]
+	path = modules/features/nvim/config
+	url = https://git.voidarc.co.uk/voidarc/nvim
